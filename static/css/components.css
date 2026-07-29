@@ -1,0 +1,31 @@
+@layer components {
+
+    .container-custom {
+        @apply max-w-7xl mx-auto px-6;
+    }
+
+    .section-title {
+        @apply text-5xl md:text-6xl font-bold leading-tight;
+    }
+
+    .section-text {
+        @apply mt-6 text-lg leading-8 text-slate-600;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center px-8 py-4 rounded-xl
+        bg-blue-600 text-white font-semibold
+        hover:bg-blue-700
+        hover:scale-105
+        active:scale-95
+        transition-all duration-300;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-8 py-4 rounded-xl
+        border border-slate-300
+        hover:bg-indigo-800
+        transition-all duration-300;
+    }
+
+}

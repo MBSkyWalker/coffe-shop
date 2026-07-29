@@ -1,0 +1,61 @@
+{% load static %}
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-black text-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+            <!-- Левая колонка -->
+            <div>
+
+                <span class="inline-block px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500 text-blue-300">
+                    Django • Tailwind • HTMX
+                </span>
+
+                <h1 class="mt-8 text-5xl md:text-7xl font-bold">
+                    Bonomi Centenario
+                </h1>
+                
+
+                <p class="mt-6 text-xl text-gray-300">
+                    Кава Bonomi Centenario - це преміальна суміш, створена для тих, хто цінує справжній смак кави. Вона поєднує в собі багатий аромат та насичений смак, що робить кожну чашку неповторною.
+                </p>
+
+                <div class="mt-10 flex gap-4">
+
+                    <a href="#"
+                       class="btn-primary">
+                        Придбати
+                    </a>
+
+                    <a href="#"
+                       class="btn-secondary">
+                        Детальніше
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Правая колонка -->
+           <div class="relative flex justify-center">
+
+    <div class="absolute -top-10 -right-10 w-64 h-64 bg-blue-500/20 blur-3xl rounded-full"></div>
+
+    <div class="absolute bottom-0 left-0 w-52 h-52 bg-cyan-400/20 blur-3xl rounded-full"></div>
+
+    <img
+        src="{% static 'images/hero/centenario.png' %}"
+        alt="Centenario"
+        class="relative z-10 w-full max-w-md rounded-3xl shadow-2xl">
+        
+
+</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
