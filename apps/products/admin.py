@@ -15,6 +15,9 @@ class ProductAdmin(admin.ModelAdmin):
         "country",
         "stock",
         "show_on_homepage",
+        "brief_description",
+        "description",
+        "is_featured",
     )
 
     list_filter = (
@@ -33,9 +36,16 @@ class ProductAdmin(admin.ModelAdmin):
     }
 
     list_editable = (
+       "name",
         "price",
+        "weight",
+        "country",
         "stock",
         "show_on_homepage",
+        "brief_description",
+        "description",
+        "is_featured",
+        
     )
 
     def preview(self, obj):
