@@ -22,9 +22,18 @@ class Product(models.Model):
         max_length=200
 )
 
+    brand = models.CharField(
+        "Бренд",
+        max_length=100,
+        default="Unknown"
+    )
+
     description = models.TextField(
         "Опис"
 )
+
+    brief_description = models.CharField(
+        "Короткий опис", max_length=200, blank=True)
 
     slug = models.SlugField(
     unique=True,
@@ -50,7 +59,7 @@ class Product(models.Model):
         default=WeightChoices.G1000,
     )
 
-    country_of_origin = models.CharField(
+    country = models.CharField(
         "Країна виробник",
         max_length=100,
         default="Unknown"
@@ -72,6 +81,7 @@ class Product(models.Model):
         upload_to="products/"
     )
 
+
     
     #Службова інформація
     created_at = models.DateTimeField(
@@ -81,6 +91,30 @@ class Product(models.Model):
     updated_at = models.DateTimeField(
         auto_now=True
     )
+
+    is_featured = models.BooleanField(
+        default=False,
+        verbose_name="Рекомендований продукт"
+    )
+
+    is_new = models.BooleanField(
+        default=False,
+        verbose_name="Новий продукт"
+    )
+
+    
+
+    
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+
+        return reverse(
+            "product_detail",
+            kwargs={
+                "slug": self.slug
+            },
+        )
 
     class Meta:
         ordering = ["-created_at"]
@@ -92,5 +126,7 @@ class Product(models.Model):
         return self.stock > 0
 
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.weight}) г '
+
+        
 
