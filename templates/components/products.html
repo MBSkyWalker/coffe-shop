@@ -41,25 +41,25 @@
                     
                     <p class="mt-4 text-slate-600">
 
-                        Рівень обжарки: ☕{{ product.roast_level }}
+                        Рівень обжарки: ☕{{ product.get_roast_level_display }}
 
                     </p>
 
                     <p class="mt-4 text-slate-600">
 
-                        ⚖️{{ product.weight }}
+                        ⚖️{{ product.get_weight_display }}
 
                     </p>
                     {% if product.stock > 0 %}
                     <p class="mt-4 text-slate-600">
 
-                        В наявності: {{ product.stock }}
+                         ✓ В наявності: {{ product.stock }}
 
                     </p>
                     {% else %}
                     <p class="mt-4 text-red-600">
 
-                        Немає в наявності
+                         ✕ Немає в наявності
 
                     </p>
                     {% endif %}
@@ -67,7 +67,7 @@
 
                         <span class="text-2xl font-bold">
 
-                            ${{ product.price }}
+                            {{ product.price }}₴
 
                         </span>
 
