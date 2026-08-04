@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}
+Кошик
+{% endblock %}
+
+{% block content %}
+
+<section class="py-20">
+
+    <div class="container-custom">
+
+        <h1 class="text-5xl font-bold mb-10">
+            🛒 Кошик
+        </h1>
+
+        {% if cart %}
+
+            <div class="space-y-6">
+
+                {% for item in cart %}
+
+                    <div class="bg-white rounded-2xl shadow p-6 flex items-center justify-between">
+
+                        <div class="flex items-center gap-6">
+
+                            <img
+                                src="{{ item.product.image.url }}"
+                                class="w-24 h-24 object-contain">
+
+                            <div>
+
+                                <h2 class="text-xl font-bold">
+                                    {{ item.product.name }}
+                                </h2>
+
+                                <p class="text-slate-500">
+                                    {{ item.product.weight }} г
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="text-right">
+
+    <div class="flex items-center gap-3 justify-end mb-3">
+
+        <a
+            href="{% url 'cart:cart_decrease' item.product.id %}"
+            class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center hover:bg-slate-300"
+        >
+            −
+        </a>
+
+        <span class="font-bold text-lg">
+            {{ item.quantity }}
+        </span>
+
+        <a
+            href="{% url 'cart:cart_increase' item.product.id %}"
+            class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center hover:bg-slate-300"
+        >
+            +
+        </a>
+
+    </div>
+
+    <p>
+        {{ item.price }} ₴ за одиницю
+    </p>
+
+    <p class="text-2xl font-bold mt-2">
+        {{ item.total_price }} ₴
+    </p>
+
+    <a
+        href="{% url 'cart:cart_remove' item.product.id %}"
+        class="text-red-600 hover:text-red-800 text-sm font-semibold block mt-3"
+    >
+        Видалити
+    </a>
+
+</div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <p class="text-xl text-slate-500">
+                Кошик порожній.
+            </p>
+
+        {% endif %}
+
+    </div>
+<div class="mt-10 flex justify-end">
+
+    <div class="bg-slate-100 rounded-2xl p-6">
+
+        <p class="text-xl">
+            Разом
+        </p>
+
+        <p class="text-4xl font-bold mt-2">
+            {{ cart.get_total_price }} ₴
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+
+{% endblock %}

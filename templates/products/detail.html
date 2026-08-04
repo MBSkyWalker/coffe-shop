@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+<section class="py-24">
+
+    <div class="container-custom">
+
+        <div class="grid lg:grid-cols-2 gap-20">
+
+            <img
+                src="{{ product.image.url }}"
+                class="rounded-3xl shadow-xl"
+            >
+
+            <div>
+
+                <h1 class="text-5xl font-bold">
+
+                    {{ product.name }}
+
+                </h1>
+
+                <p class="mt-6 text-slate-600">
+
+                    {{ product.description }}
+
+                </p>
+
+                <p class="mt-8 text-4xl font-bold">
+
+                    {{ product.price }} ₴
+
+                </p>
+
+                <a
+                href="{% url 'cart:cart_add' product.id %}"
+                class="btn-primary">
+                Купити
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
